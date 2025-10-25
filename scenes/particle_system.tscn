@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://fxyjctihiri5"]
+[gd_scene load_steps=2 format=3 uid="uid://fxyjctihiri5"]
+
+[ext_resource type="Script" uid="uid://cw61jf5n6a1yh" path="res://scripts/ParticleController.cs" id="1_7st40"]
 
 [node name="ParticleSystem" type="Node2D"]
+script = ExtResource("1_7st40")
