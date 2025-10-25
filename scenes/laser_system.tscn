@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b4vcmlb05na0s"]
+[gd_scene load_steps=2 format=3 uid="uid://b4vcmlb05na0s"]
+
+[ext_resource type="Script" uid="uid://dlc7mdgtxcknd" path="res://scripts/LaserDetector.cs" id="1_bq401"]
 
 [node name="LaserSystem" type="Node2D"]
+script = ExtResource("1_bq401")
