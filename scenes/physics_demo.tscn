@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ejyiq5aix6kp"]
+
+[node name="PhysicsDemo" type="Node2D"]
