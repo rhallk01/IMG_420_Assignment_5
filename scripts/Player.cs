@@ -27,5 +27,16 @@ public partial class Player : CharacterBody2D
 
 	Velocity = _velocity;
 	MoveAndSlide();
+	
+	for (int index = 0; index < GetSlideCollisionCount(); index++)
+	{
+		var collision = GetSlideCollision(index);
+		if (collision.GetCollider() is RigidBody2D body)
+		{
+			Vector2 impulse = -collision.GetNormal() * 300f; // tweak strength
+			body.ApplyImpulse(Vector2.Zero, impulse);
+		}
+	}
+
  }
 }

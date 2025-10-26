@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://drf5lwgb82u3h" path="res://scenes/player.tscn" id="4_c16ls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pu3yx"]
-size = Vector2(760, 38)
+size = Vector2(836, 38)
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(0, 1)
@@ -15,24 +15,24 @@ position = Vector2(0, 1)
 position = Vector2(1029, 534)
 
 [node name="PhysicsDemo" parent="." instance=ExtResource("2_gubc5")]
-position = Vector2(506, 385)
+position = Vector2(105, 189)
 
 [node name="LaserSystem" parent="." instance=ExtResource("3_rt2n2")]
 position = Vector2(374, 289)
 PlayerPath = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_c16ls")]
-position = Vector2(179, 281)
+position = Vector2(287, 265)
 scale = Vector2(0.4, 0.4)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(519, 367)
+position = Vector2(481, 367)
 shape = SubResource("RectangleShape2D_pu3yx")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = 138.0
+offset_left = 63.0
 offset_top = 347.0
 offset_right = 900.0
 offset_bottom = 387.0
