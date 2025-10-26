@@ -54,7 +54,7 @@ public partial class LaserDetector : Node2D
 		// TODO: Check if hit object is player
 		// TODO: Trigger alarm if player detected
 		_rayCast.ForceRaycastUpdate();
-		UpdateLaserBeam()
+		UpdateLaserBeam();
 		if (_rayCast.IsColliding() && _rayCast.GetCollider() == _player)
 		{
 			if (!_isAlarmActive)

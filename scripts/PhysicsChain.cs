@@ -12,6 +12,12 @@ public partial class PhysicsChain : Node2D
 
 	public override void _Ready()
 	{
+		if (SegmentScene == null)
+		{
+			GD.PushError("SegmentScene is not assigned in the Inspector!");
+			return;
+		}
+		
 		CreateChain();
 	}
 	// TODO: Create chain segments
@@ -27,24 +33,25 @@ public partial class PhysicsChain : Node2D
 	{
 		Node2D previous = null;
 		
-		for (int i = 0; i < CHainSegments; i++)
+		for (int i = 0; i < ChainSegments; i++)
 		{
-			var segment = (RigidBody2D)SegmentScene.Instantiate();
-			AddChild(segment);
-			segment.Position = new Vector2(i * SegmentDistance, 0);
-			_segment.Add(segment);
+			var _segment = (RigidBody2D)SegmentScene.Instantiate();
+			AddChild(_segment);
+			_segment.Position = new Vector2(i * SegmentDistance, 0);
+			_segment.AddChild(_segment);
 			
 			if(previous != null)
 			{
-				var joint = PinJoint2D
+				var joint = new PinJoint2D
 				{
-					NodeA = previous.GetPath(), 
-					NodeB = segment.GetPath()
+					NodeA = previous.GetPath(),
+					NodeB = _segment.GetPath()
 				};
+
 				AddChild(joint);
 				_joints.Add(joint);
 			}
-			previous = segment;
+			previous = _segment;
 		}
 		_segments[0].Freeze = true;
 	}
@@ -53,9 +60,9 @@ public partial class PhysicsChain : Node2D
 	public void ApplyForceToSegment(int segmentIndex, Vector2 force)
 	{
 		// Apply impulse or force to specific segment
-		if (segmentIndex >= 0 && index < _segments.Count)
+		if (segmentIndex >= 0 && segmentIndex < _segments.Count)
 		{
-			_segments[index].ApplyImpulse(Vector2.Zero, force);
+			_segments[segmentIndex].ApplyImpulse(Vector2.Zero, force);
 		}
 	} 
 }

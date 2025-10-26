@@ -11,7 +11,7 @@ public partial class ParticleController : GpuParticles2D
 		// TODO: Set process material properties
 		// Hint: Use a new ShaderMaterial with your custom shader
 		_shaderMaterial = new ShaderMaterial();
-		_shaderMaterial.Shader = GD.Load<Shader>("res://scripts/custom_particle.gdshader"
+		_shaderMaterial.Shader = GD.Load<Shader>("res://scripts/custom_particle.gdshader");
 	
 		ProcessMaterial = _shaderMaterial;
 	
@@ -24,7 +24,7 @@ public partial class ParticleController : GpuParticles2D
 	{
 		// TODO: Update shader parameters over time
 		// Hint: Use shader parameters to create animated effects
-		float time = (float)Time.GetTickMsec()/1000f;
+		float time = 3;//(float)Time.GetTickMsec()/1000f;
 		_shaderMaterial.SetShaderParameter("wave_intensity", 0.1f + Mathf.Sin(time) * 0.05f);
 	}
 }
