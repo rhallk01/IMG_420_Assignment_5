@@ -1,20 +1,31 @@
 using Godot;
 public partial class Player : CharacterBody2D
 {
- [Export] public float Speed = 200f;
+	
+	[Export] public float Speed = 200f;
+	[Export] public float JumpForce = 350f;
+	[Export] public float Gravity = 900f;
+	
+	private Vector2 _velocity = Vector2.Zero;
 
  public override void _PhysicsProcess(double delta)
  {
 	// TODO: Implement basic movement (WASD or Arrow keys)
 	// TODO: Use MoveAndSlide()
-	Vector2 velocity = Vector2.Zero;
-		
-	// Get input and move
-	if (Input.IsActionPressed("ui_right")) velocity.X += 1;
-	if (Input.IsActionPressed("ui_left")) velocity.X -= 1;
-	if (Input.IsActionPressed("ui_down")) velocity.Y += 1;
-	if (Input.IsActionPressed("ui_up")) velocity.Y -= 1;
-	Velocity = velocity.Normalized() * Speed;
+	float dt = (float)delta;
+	
+	if (!IsOnFloor())
+		_velocity.Y += Gravity * dt;
+	else
+		_velocity.Y = Mathf.Clamp(_velocity.Y, -JumpForce, Gravity);
+			
+	float inputX = Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left");
+	_velocity.X = inputX * Speed;
+	
+	if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		_velocity.Y = -JumpForce;	
+
+	Velocity = _velocity;
 	MoveAndSlide();
  }
 }

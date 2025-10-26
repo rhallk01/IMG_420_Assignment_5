@@ -1,8 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://fxyjctihiri5"]
+[gd_scene load_steps=6 format=3 uid="uid://fxyjctihiri5"]
 
 [ext_resource type="Script" uid="uid://cw61jf5n6a1yh" path="res://scripts/ParticleController.cs" id="1_7st40"]
-[ext_resource type="Texture2D" uid="uid://tyds13le1wvh" path="res://assets/white-spark-bright-clipart.png" id="2_tu5rt"]
+[ext_resource type="Texture2D" uid="uid://chgohawcecpdn" path="res://icon.svg" id="1_hufjv"]
 [ext_resource type="Shader" uid="uid://c0oejkmhnikec" path="res://scripts/custom_particle.gdshader" id="3_hufjv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hufjv"]
+shader = ExtResource("3_hufjv")
+shader_parameter/wave_intensity = 0.1
+shader_parameter/color_start = Color(1, 0.5, 0, 1)
+shader_parameter/color_end = Color(1, 0, 0.5, 1)
+shader_parameter/wave_amplitude = 10.0
+shader_parameter/wave_frequency = 5.0
+shader_parameter/wave_speed = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_si3u3"]
 shader = ExtResource("3_hufjv")
@@ -14,10 +23,13 @@ shader_parameter/wave_frequency = 5.0
 shader_parameter/wave_speed = 2.0
 
 [node name="ParticleSystem" type="Node2D"]
+position = Vector2(-1, 0)
 
 [node name="Particles" type="GPUParticles2D" parent="."]
-amount = 3
-texture = ExtResource("2_tu5rt")
-lifetime = 3.0
+material = SubResource("ShaderMaterial_hufjv")
+amount = 1
+texture = ExtResource("1_hufjv")
+lifetime = 0.9
+local_coords = true
 process_material = SubResource("ShaderMaterial_si3u3")
 script = ExtResource("1_7st40")

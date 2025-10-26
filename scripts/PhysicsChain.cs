@@ -36,16 +36,19 @@ public partial class PhysicsChain : Node2D
 		for (int i = 0; i < ChainSegments; i++)
 		{
 			var _segment = (RigidBody2D)SegmentScene.Instantiate();
+
 			AddChild(_segment);
 			_segment.Position = new Vector2(i * SegmentDistance, 0);
-			_segment.AddChild(_segment);
+			_segments.Add(_segment);
 			
 			if(previous != null)
 			{
 				var joint = new PinJoint2D
 				{
 					NodeA = previous.GetPath(),
-					NodeB = _segment.GetPath()
+					NodeB = _segment.GetPath(),
+					Softness = 0.01f,
+					Bias = 0.1f
 				};
 
 				AddChild(joint);
