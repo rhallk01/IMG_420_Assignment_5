@@ -23,7 +23,7 @@ Shader Code: <br>
 
 <br>Result:<br>
 ![particle_with_gradient](https://github.com/user-attachments/assets/a2ef3518-3a36-4118-b5f6-be1f40432101)<br>
-
+*click on image above and refresh to rerun gif*<br>
 #### Responds to time for animation
 The shader incorporates time in the equation used for calculating distortion, so that the distortion changes as time passes, causing a 'wiggle'.
 
@@ -49,8 +49,8 @@ Code (in player script):<br>
 <img width="840" height="367" alt="image" src="https://github.com/user-attachments/assets/4c0bdf77-f471-43f7-9b15-23211f9e8fd3" />
 
 <br>Result:<br>
-![chain-interaction](https://github.com/user-attachments/assets/af6d2a3c-0335-46ab-ae25-cc37c7496bdf)
-
+![chain-interaction](https://github.com/user-attachments/assets/af6d2a3c-0335-46ab-ae25-cc37c7496bdf)<br>
+*click on image above and refresh to rerun gif; note that the movement is slightly jerky from compression to gif*<br>
 #### Has at least 5 connected segments
 Code:<br>
 <img width="390" height="53" alt="image" src="https://github.com/user-attachments/assets/053dd81e-5d87-4bb4-aaad-cae8e33099b0" />
@@ -89,5 +89,6 @@ Code:<br>
 <img width="453" height="191" alt="image" src="https://github.com/user-attachments/assets/592ab38c-2b95-4d2f-985c-304cf7088a53" />
 
 <br>Result:<br>
-![laser-beam](https://github.com/user-attachments/assets/a14406ce-6b8f-4b9f-a62b-881cca3c0bff)
+![laser-beam](https://github.com/user-attachments/assets/a14406ce-6b8f-4b9f-a62b-881cca3c0bff)<br>
+*click on image above and refresh to rerun gif*<br>
 <img width="802" height="562" alt="image" src="https://github.com/user-attachments/assets/cefe6b57-f4a5-40b5-8f94-e826600b6350" />
